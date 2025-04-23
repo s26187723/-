@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>菜單 Menu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><h1>菜單 / Menu</h1><a href="index.html">回首頁</a></header>
+  <main>
+    <input type="text" id="searchBox" placeholder="搜尋商品 Search..." onkeyup="filterMenu()">
+    <ul id="menuList">
+      <li>蛋餅 Egg Pancake - $30</li>
+      <li>蔥抓餅 Scallion Pancake - $35</li>
+      <li>鐵板麵 Teppanyaki Noodles - $40</li>
+    </ul>
+  </main>
+  <script>
+    function filterMenu() {
+      let input = document.getElementById('searchBox').value.toLowerCase();
+      let items = document.querySelectorAll('#menuList li');
+      items.forEach(li => {
+        li.style.display = li.textContent.toLowerCase().includes(input) ? '' : 'none';
+      });
+    }
+  </script>
+</body>
+</html>
